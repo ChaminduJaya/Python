@@ -1,6 +1,8 @@
 def start_game():
     global total_runs 
     total_runs=0
+    global wickets 
+    wickets = 0
 def overs_in_match():
     
     over =0
@@ -14,13 +16,14 @@ def overs_in_match():
 def balls_in_over(over):
     ball = 0
     while ball<6 :
-        print(f'total :{total_runs}  overs :{over}.{ball}',end='')
+        print(f'{total_runs}/{wickets}  overs :{over}.{ball}')
         score_off_balls()
         
         ball +=1
 
 def score_off_balls ():
     global total_runs
+    global wickets
     score = input('Score :')
     if score.isdigit() :        #validation
         score = int(score)
@@ -28,9 +31,10 @@ def score_off_balls ():
         if score in (0,1,2,3,4,6):
             runs = score 
             total_runs += runs
-           
+    elif score.lower() == 'w':
+        wickets+=1
     else :
-        print('not digit')
+        print('invalid')
 
 def print_score():
     pass
