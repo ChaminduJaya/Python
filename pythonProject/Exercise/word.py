@@ -1,0 +1,15 @@
+Sentence=input("Enter your sentence:")
+words=Sentence.split()
+print(type(words))
+print(len(words))
+if 'love' in Sentence:
+    print('Oh baddd')
+if 'love' in words:
+    print('Oh baddd')
+words[0]=words[0].capitalize()
+words[1]=words[1].capitalize()
+words[2]=words[2].capitalize()
+print(words)
+print(words[0],words[1],words[2])
+Sentence=' '.join(words)
+print(Sentence.replace('I','He'))

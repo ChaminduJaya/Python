@@ -1,0 +1,7 @@
+wc2015=('sanga','mahela','mathews','chandi','murali')
+wc2019=('dimuth','mathews','chandi','KJP','mendis')
+print(f'2015 wc squad is:{wc2015}\n2019 wc squad is:{wc2019}')
+print('Experienced players: ',set(wc2019) & set(wc2015))
+print('new players:',set(wc2019) - set(wc2015))
+print('retired players :',set(wc2015) & set(wc2019))
+print('all wc players:',set(wc2019) | set(wc2015))
