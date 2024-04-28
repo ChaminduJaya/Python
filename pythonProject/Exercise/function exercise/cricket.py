@@ -39,14 +39,16 @@ def score_off_balls ():
     elif score.lower() == 'w':
         wickets+=1
         if wickets == 4:
-            game_over()
+            #game_over()
+            print_score()
     else :
         print('invalid')
 
 def print_score():
     print(f'{total_runs}/{wickets}  overs :{over}.{ball}')
 
-def game_over():
-    print_score()
+#def game_over():
+
 start_game()
+
 overs_in_match()
