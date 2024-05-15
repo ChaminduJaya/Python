@@ -5,6 +5,19 @@ class CricketMatch():
         self.wickets = 0
         self.ball=0
         self.over=0
+        self.players_name =[]
+        self.add_players_name()
+        self.player_a= self.players_name[0]
+        self.player_b= self.players_name[1]
+        self.batsman=self.player_a
+        self.player_a_runs=0
+        self.player_b_runs=0
+
+    def add_players_name (self):
+         for i in range(1,6) :
+              player=input(f'player {i}')
+              self.players_name.append(player)
+              
     def overs_in_match(self):
         #global over,ball
         while self.over<2 and self.wickets <4 :
@@ -36,13 +49,32 @@ class CricketMatch():
             if score in (0,1,2,3,4,6):
                 runs = score 
                 self.total_runs += runs
+                if score in (1,3):
+                     self.player_change_runs()
         elif score.lower() == 'w':
             self.wickets+=1
+            if self.wickets<4:
+                self.player_change_wickets()
+            
             #if wickets == 4:
                 #game_over()
                 #print_score()
         else :
             print('invalid')
+
+    def player_change_runs(self):
+        if self.batsman == self.player_a :
+              self.batsman=self.player_b
+        else:
+             self.batsman=self.player_a
+
+    def player_change_wickets(self):
+        if self.batsman == self.player_a :
+              self.player_a= self.players_name[self.wickets+1]
+              self.batsman=self.player_a
+        else:
+             self.player_b= self.players_name[self.wickets+1]
+             self.batsman=self.player_b
 
     def print_score(self):
         print(f'{self.total_runs}/{self.wickets}  overs :{self.over}.{self.ball}')
